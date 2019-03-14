@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/imageViewMatrixBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/matrix"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_chat_tts"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/chat_bubble_tts"
+            android:padding="50dp"
+            android:text="Hi 您好，點我的頭就可以交談喔"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textViewSpeech"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginLeft="100dp"
+            android:background="@drawable/chat_bubble_speech"
+            android:padding="50dp"
+            android:text="^___^"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+
+        <ImageView
+            android:id="@+id/imageViewRobot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:srcCompat="@drawable/robot_head"/>
+    </LinearLayout>
+</RelativeLayout>
