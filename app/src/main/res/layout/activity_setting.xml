@@ -3,4 +3,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_radius"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <TextView
+            android:id="@+id/textView_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/semantic_ip"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/editText_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/background_light"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/background_dark"/>
+
+
+    </LinearLayout>
 </RelativeLayout>
