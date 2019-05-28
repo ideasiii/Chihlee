@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity
         put(R.id.imageView_introduce, ActivityIntroduce.class);
         put(R.id.imageView_map, ActivityMap.class);
         put(R.id.imageView_chat, ActivityChat.class);
+        put(R.id.imageViewSetting, ActivitySetting.class);
     }};
     
     @Override

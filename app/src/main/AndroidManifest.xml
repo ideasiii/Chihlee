@@ -17,6 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ActivitySetting">
+        </activity>
         <activity
             android:name=".ActivityIntroduce"
             android:configChanges="orientation"

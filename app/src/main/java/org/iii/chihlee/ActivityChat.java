@@ -30,8 +30,8 @@ import java.util.Locale;
 public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnInitListener
 {
     private final int MSG_RESP = 666;
-    private final String IP = "140.92.142.22";
-    //private final String IP = "192.168.0.109";
+    //private final String IP = "140.92.142.22";
+    private final String IP = "192.168.0.109";
     private final int PORT = 2310;
     private ImageView imageViewRobot;
     private int voiceRecognitionRequestCode = 777;
