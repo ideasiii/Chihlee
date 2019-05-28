@@ -30,7 +30,8 @@ import java.util.Locale;
 public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnInitListener
 {
     private final int MSG_RESP = 666;
-    private final String IP = "140.92.142.216";
+    private final String IP = "140.92.142.22";
+    //private final String IP = "192.168.0.109";
     private final int PORT = 2310;
     private ImageView imageViewRobot;
     private int voiceRecognitionRequestCode = 777;
@@ -79,8 +80,6 @@ public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnIn
     
     private void startVoiceRecognitionActivity()
     {
-        
-        
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "您想要的服務是");
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -90,7 +89,6 @@ public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnIn
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 1500);
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 15000);
         intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
-        
         
         startActivityForResult(intent, voiceRecognitionRequestCode);
     }
@@ -209,12 +207,20 @@ public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnIn
         @Override
         public void handleMessage(Message msg)
         {
-            switch (msg.what)
+            if (MSG_RESP == msg.what)
             {
-                case MSG_RESP:
-                    
-                    Logs.showTrace("cmp response.....");
-                    break;
+                String strResp = (String) msg.obj;
+                Logs.showTrace("[Handler] handleMessage CMP Response: " + strResp);
+                try
+                {
+                    String strTTS = new JSONObject(strResp).getJSONObject("activity").getString(
+                            "tts");
+                    saySomething(strTTS, 0);
+                }
+                catch (Exception e)
+                {
+                    Logs.showError(e.getMessage());
+                }
             }
         }
     };
