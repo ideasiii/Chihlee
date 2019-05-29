@@ -1,5 +1,6 @@
 package org.iii.chihlee.common;
 
+import org.iii.more.common.Logs;
 import org.iii.more.eventlistener.EventListener.Callback;
 import org.iii.more.restapiclient.Config.HTTP_DATA_TYPE;
 import org.iii.more.restapiclient.Response;

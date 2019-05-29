@@ -31,7 +31,7 @@ public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnIn
 {
     private final int MSG_RESP = 666;
     //private final String IP = "140.92.142.22";
-    private final String IP = "192.168.0.109";
+    private String IP = "127.0.0.1";
     private final int PORT = 2310;
     private ImageView imageViewRobot;
     private int voiceRecognitionRequestCode = 777;
@@ -69,6 +69,7 @@ public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnIn
     @Override
     protected void onStart()
     {
+        IP = ConfigHandler.restoreIP(this);
         super.onStart();
     }
     
@@ -153,10 +154,10 @@ public class ActivityChat extends AppCompatActivity implements TextToSpeech.OnIn
             lh = hh;
         }
         
-        
         @Override
         public void run()
         {
+            Logs.showTrace("[ActivityChat] SocketSend IP: " + IP + " text: " + text);
             Controller.cmpRequest(IP, PORT, Controller.semantic_word_request, text, resp);
             Message msg = new Message();
             msg.what = MSG_RESP;
